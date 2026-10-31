@@ -11,23 +11,24 @@
         p { margin: 5px 0 0; font-size: 13px; color: #a7f3d0; }
         .nav-btn { background: #047857; color: white; border: 1px solid #059669; padding: 8px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-left: 5px; }
         .nav-btn:hover { background: #064e3b; }
-        main { max-width: 1400px; margin: 20px auto; padding: 0 15px; }
+        main { max-width: 1450px; margin: 20px auto; padding: 0 15px; }
         .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow-x: auto; }
         .grid { display: flex; gap: 15px; flex-wrap: wrap; }
         .box { flex: 1; min-width: 220px; background: #ecfdf5; padding: 15px; border-left: 4px solid #059669; border-radius: 4px; }
         .box h3 { margin: 0 0 10px 0; color: #065f46; font-size: 14px; }
         .box p { margin: 0; font-size: 22px; font-weight: bold; color: #064e3b; }
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11px; }
-        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; vertical-align: top; }
         th { background-color: #f9fafb; color: #374151; }
         .hidden { display: none; }
         .dashboard { background: #fffbeb; border: 1px solid #fde68a; padding: 20px; border-radius: 8px; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 15px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 15px; }
         .form-group label { display: block; font-weight: bold; font-size: 11px; margin-bottom: 3px; color: #92400e; }
-        .form-group input { width: 100%; padding: 7px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 12px; box-sizing: border-box; }
+        .form-group input, .form-group select { width: 100%; padding: 7px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 12px; box-sizing: border-box; }
         .checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; background: #fff; padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; }
         .checkbox-group label { font-size: 12px; color: #1f2937; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 4px; }
-        .editable-cell { background-color: #fff; border: 1px dashed #d97706; padding: 4px; border-radius: 3px; width: 90%; font-size: 11px; }
+        .editable-cell { background-color: #fff; border: 1px dashed #d97706; padding: 4px; border-radius: 3px; width: 95%; font-size: 11px; margin-bottom: 3px; display: block; }
+        .profile-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 1px solid #059669; }
         .action-btn { background: #2563eb; color: white; border: none; padding: 5px 8px; border-radius: 3px; cursor: pointer; font-size: 11px; margin-right: 4px; }
         .action-btn:hover { background: #1d4ed8; }
         .delete-btn { background: #dc2626; color: white; border: none; padding: 5px 8px; border-radius: 3px; cursor: pointer; font-size: 11px; }
@@ -59,43 +60,41 @@
                         <p id="pubMemberCount">1</p>
                     </div>
                     <div class="box" style="border-left-color: #d97706; background: #fffbeb;">
-                        <h3 style="color: #b45309;">Kabuuang Ani (Palay/Bunga/Gulay)</h3>
-                        <p style="color: #92400e;" id="pubTotalHarvest">500 kg</p>
+                        <h3 style="color: #b45309;">Kabuuang Pondo (Dues & Reg)</h3>
+                        <p style="color: #92400e;" id="pubTotalFunds">₱220</p>
                     </div>
                     <div class="box" style="border-left-color: #2563eb; background: #eff6ff;">
-                        <h3 style="color: #1d4ed8;">Kabuuang Benta</h3>
+                        <h3 style="color: #1d4ed8;">Kabuuang Kita ng Ani</h3>
                         <p style="color: #1e40af;" id="pubTotalSales">₱25,000</p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Detalyadong Talaan ng mga Magsasaka at Produksyon</h3>
+                <h3>Kumpletong Profile at Produksyon ng mga Magsasaka</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Pangalan</th>
-                            <th>Address & Contact</th>
-                            <th>DOB / Edad</th>
-                            <th>Sukat (Palay & Niyog)</th>
-                            <th>Uri ng Pagsasaka</th>
-                            <th>Ani (Palay, Niyog, Gulay)</th>
-                            <th>Gastos & Abono</th>
-                            <th>Konsumo / Benta</th>
-                            <th>Kabuuang Halaga</th>
+                            <th>Photo</th>
+                            <th>Pangalan & Personal Info</th>
+                            <th>Sukat ng Lupa (Palay / Niyog)</th>
+                            <th>Uri ng Pagsasaka & Hayop</th>
+                            <th>Abono (Palay / Gulay)</th>
+                            <th>Ani & Konsumo</th>
+                            <th>Kita (Palay, Niyog, Gulay, Livestock)</th>
+                            <th>Bayarin (Dues & Reg)</th>
                         </tr>
                     </thead>
                     <tbody id="publicTableBody">
                         <tr>
-                            <td>Benilda R. Bragais</td>
-                            <td>Zone 3, Itulan<br>09123456789</td>
-                            <td>03/15/1975<br>(51 yrs old)</td>
-                            <td>Palay: 0 | Niyog: 2.0 Hektarya</td>
-                            <td>[✔] Coconut<br>[ ] Rice [ ] Livestock [ ] Gulay</td>
-                            <td>Palay: 0 | Niyog: 1,000 pcs<br>Gulay: Wala</td>
-                            <td>2 Beses Abono | Labor: ₱1,500</td>
-                            <td>Konsumo: 50 kg<br>Binenta: 450 kg</td>
-                            <td>₱25,000</td>
+                            <td><img src="https://via.placeholder.com/45" class="profile-img"></td>
+                            <td><b>Benilda R. Bragais</b><br>Zone 3, Itulan / 09123456789<br>DOB: 03/15/1975 (51 yrs)</td>
+                            <td>Palay: 0 ha<br>Niyugan: 2.0 ha</td>
+                            <td>[✔] Coconut<br>Hayop: Wala</td>
+                            <td>Palay: 0 | Gulay: 0</td>
+                            <td>Niyog: 1,000 pcs<br>Konsumo: 50 kg</td>
+                            <td>Niyog Kita: ₱25,000</td>
+                            <td>Reg: ₱100 | Dues: ₱120</td>
                         </tr>
                     </tbody>
                 </table>
@@ -105,8 +104,8 @@
         <!-- OFFICER VIEW -->
         <div id="officerDashboard" class="hidden">
             <div class="dashboard">
-                <h2 style="color: #b45309; margin-top: 0;">🔒 Officer Portal (Kumpletong Rekord ng Magsasaka)</h2>
-                <p style="color: #92400e; margin-bottom: 15px;">Dito maaring idagdag, i-edit, o i-update ang kumpletong impormasyon ng bawat miyembro.</p>
+                <h2 style="color: #b45309; margin-top: 0;">🔒 Officer Portal (Master Profile & Records)</h2>
+                <p style="color: #92400e; margin-bottom: 15px;">Magdagdag at mag-edit ng kumpletong impormasyon, bayarin, hayop, at kita ng mga miyembro.</p>
                 
                 <!-- ADD MEMBER FORM -->
                 <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #fcd34d; margin-bottom: 20px;">
@@ -117,6 +116,10 @@
                             <input type="text" id="mName" placeholder="Hal. Juan Dela Cruz">
                         </div>
                         <div class="form-group">
+                            <label>Link ng Litrato (Photo URL):</label>
+                            <input type="text" id="mPhoto" placeholder="https://... o pangalan ng file">
+                        </div>
+                        <div class="form-group">
                             <label>Address:</label>
                             <input type="text" id="mAddress" placeholder="Hal. Zone 3, Itulan">
                         </div>
@@ -125,96 +128,101 @@
                             <input type="text" id="mContact" placeholder="Hal. 09637657151">
                         </div>
                         <div class="form-group">
-                            <label>Date of Birth (DOB):</label>
-                            <input type="text" id="mDob" placeholder="Hal. March 10, 1995">
-                        </div>
-                        <div class="form-group">
-                            <label>Edad:</label>
-                            <input type="text" id="mAge" placeholder="Hal. 31">
+                            <label>Date of Birth (DOB) & Edad:</label>
+                            <input type="text" id="mDob" placeholder="Hal. March 10, 1995 (31 yrs)">
                         </div>
                         <div class="form-group">
                             <label>Sukat ng Palayan (Hektarya):</label>
-                            <input type="text" id="mRiceLand" placeholder="Hal. 1.5 Hektarya">
+                            <input type="text" id="mRiceLand" placeholder="Hal. 1.0 ha">
                         </div>
                         <div class="form-group">
                             <label>Sukat ng Niyugan (Hektarya):</label>
-                            <input type="text" id="mCocoLand" placeholder="Hal. 2.0 Hektarya">
+                            <input type="text" id="mCocoLand" placeholder="Hal. 2.0 ha">
                         </div>
                     </div>
 
-                    <label style="font-weight: bold; font-size: 11px; color: #92400e; display: block; margin-bottom: 5px;">Uri ng Pagsasaka (Pwedeng mamili ng higit sa isa):</label>
+                    <label style="font-weight: bold; font-size: 11px; color: #92400e; display: block; margin-bottom: 5px;">Uri ng Pagsasaka:</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" id="cRice"> Rice (Palay)</label>
                         <label><input type="checkbox" id="cCoconut"> Coconut (Kopra)</label>
                         <label><input type="checkbox" id="cLivestock"> Livestock (Alagang Hayop)</label>
-                        <label><input type="checkbox" id="cVeg"> High Value Crops / Gulay</label>
+                        <label><input type="checkbox" id="cVeg"> High Value Crops (Gulay)</label>
                     </div>
 
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Ani sa Palay:</label>
-                            <input type="text" id="mRiceHarvest" placeholder="Hal. 350 kg">
+                            <label>Uri at Bilang ng Hayop:</label>
+                            <input type="text" id="mLivestockInfo" placeholder="Hal. Baby: 2, Baka: 1, Kalabaw: 1">
                         </div>
                         <div class="form-group">
-                            <label>Ani sa Niyugan (Pirasong Bunga):</label>
-                            <input type="text" id="mCocoHarvest" placeholder="Hal. 800 piraso">
+                            <label>Abono sa Palay (Ilang beses):</label>
+                            <input type="text" id="mRiceFert" placeholder="Hal. 3 Beses">
                         </div>
                         <div class="form-group">
-                            <label>Uri ng Gulay (kung meron):</label>
-                            <input type="text" id="mVegType" placeholder="Hal. Talong, Ampalaya, Sitaw">
+                            <label>Abono sa Gulay (Ilang beses):</label>
+                            <input type="text" id="mVegFert" placeholder="Hal. 2 Beses">
                         </div>
                         <div class="form-group">
-                            <label>Ani sa Gulay (Ilang kilo bawat ani):</label>
-                            <input type="text" id="mVegHarvest" placeholder="Hal. 120 kg">
-                        </div>
-                        <div class="form-group">
-                            <label>Abono & Labor & Gastos:</label>
-                            <input type="text" id="mCost" placeholder="Hal. 3 Beses Abono | Labor: ₱1,000">
+                            <label>Ani (Palay / Niyog / Gulay):</label>
+                            <input type="text" id="mHarvest" placeholder="Hal. Palay: 50 sako | Niyog: 800 pcs | Gulay: 100 kg">
                         </div>
                         <div class="form-group">
                             <label>Family Food Consumption:</label>
-                            <input type="text" id="mConsump" placeholder="Hal. 40 kg">
+                            <input type="text" id="mConsump" placeholder="Hal. 50 kg Palay">
                         </div>
                         <div class="form-group">
-                            <label>Dami ng Binenta:</label>
-                            <input type="text" id="mSoldQty" placeholder="Hal. 310 kg">
+                            <label>Kita sa Palay:</label>
+                            <input type="text" id="mRiceSales" placeholder="Hal. ₱10,000">
                         </div>
                         <div class="form-group">
-                            <label>Kabuuang Halaga ng Benta:</label>
-                            <input type="text" id="mTotalSales" placeholder="Hal. ₱15,500">
+                            <label>Kita sa Niyog / Kopra:</label>
+                            <input type="text" id="mCocoSales" placeholder="Hal. ₱20,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Kita sa Gulay:</label>
+                            <input type="text" id="mVegSales" placeholder="Hal. ₱5,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Kita sa Livestock:</label>
+                            <input type="text" id="mLiveSales" placeholder="Hal. ₱15,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Registration (Yearly):</label>
+                            <input type="text" id="mRegFee" value="₱100">
+                        </div>
+                        <div class="form-group">
+                            <label>Monthly Dues (Yearly):</label>
+                            <input type="text" id="mDuesFee" value="₱120">
                         </div>
                     </div>
                     <button class="nav-btn" style="background: #059669;" onclick="addMemberRecord()">Idagdag sa Listahan</button>
                 </div>
 
                 <h3 style="color: #b45309;">Pamamahala at Pag-edit ng mga Rekord</h3>
-                <p style="font-size: 12px; color: #78350f;">Tip: Pwede mong baguhin ang mga teksto sa loob ng mga kahon sa ibaba, pagkatapos ay i-click ang "I-save".</p>
                 <table style="background: white;">
                     <thead>
                         <tr>
-                            <th>Pangalan</th>
-                            <th>Address & Contact</th>
-                            <th>DOB / Edad</th>
-                            <th>Sukat (Palay & Niyog)</th>
-                            <th>Uri</th>
-                            <th>Ani (Palay, Niyog, Gulay)</th>
-                            <th>Gastos & Abono</th>
-                            <th>Konsumo / Benta</th>
-                            <th>Halaga</th>
+                            <th>Photo URL</th>
+                            <th>Pangalan & Personal Info</th>
+                            <th>Sukat ng Lupa</th>
+                            <th>Uri ng Pagsasaka & Hayop</th>
+                            <th>Abono (Palay / Gulay)</th>
+                            <th>Ani & Konsumo</th>
+                            <th>Kita (Palay, Niyog, Gulay, Livestock)</th>
+                            <th>Bayarin (Reg & Dues)</th>
                             <th>Aksyon</th>
                         </tr>
                     </thead>
                     <tbody id="officerTableBody">
                         <tr>
-                            <td><input type="text" class="editable-cell" value="Benilda R. Bragais"></td>
-                            <td><input type="text" class="editable-cell" value="Zone 3, Itulan / 09123456789"></td>
-                            <td><input type="text" class="editable-cell" value="03/15/1975 (51 yrs)"></td>
-                            <td><input type="text" class="editable-cell" value="Palay: 0 | Niyog: 2.0 Hektarya"></td>
-                            <td><input type="text" class="editable-cell" value="Coconut [✔], Rice [ ], Livestock [ ], Gulay [ ]"></td>
-                            <td><input type="text" class="editable-cell" value="Palay: 0 | Niyog: 1,000 pcs | Gulay: Wala"></td>
-                            <td><input type="text" class="editable-cell" value="2 Beses | ₱1,500"></td>
-                            <td><input type="text" class="editable-cell" value="Konsumo: 50 | Benta: 450"></td>
-                            <td><input type="text" class="editable-cell" value="₱25,000"></td>
+                            <td><input type="text" class="editable-cell" value="https://via.placeholder.com/45"></td>
+                            <td><input type="text" class="editable-cell" value="Benilda R. Bragais / 09123456789 / 03/15/1975"></td>
+                            <td><input type="text" class="editable-cell" value="Palay: 0 | Niyog: 2.0 ha"></td>
+                            <td><input type="text" class="editable-cell" value="Coconut [✔], Hayop: Wala"></td>
+                            <td><input type="text" class="editable-cell" value="Palay: 0 | Gulay: 0"></td>
+                            <td><input type="text" class="editable-cell" value="Niyog: 1,000 pcs | Konsumo: 50kg"></td>
+                            <td><input type="text" class="editable-cell" value="Niyog: ₱25,000"></td>
+                            <td><input type="text" class="editable-cell" value="Reg: ₱100 | Dues: ₱120"></td>
                             <td>
                                 <button class="action-btn" onclick="saveEdits(this)">I-save</button>
                                 <button class="delete-btn" onclick="deleteRow(this)">Tanggalin</button>
@@ -252,10 +260,10 @@
 
         function addMemberRecord() {
             let name = document.getElementById('mName').value;
+            let photo = document.getElementById('mPhoto').value || "https://via.placeholder.com/45";
             let address = document.getElementById('mAddress').value;
             let contact = document.getElementById('mContact').value;
             let dob = document.getElementById('mDob').value;
-            let age = document.getElementById('mAge').value;
             let riceLand = document.getElementById('mRiceLand').value;
             let cocoLand = document.getElementById('mCocoLand').value;
             
@@ -263,17 +271,20 @@
             let isCoconut = document.getElementById('cCoconut').checked ? "✔" : " ";
             let isLivestock = document.getElementById('cLivestock').checked ? "✔" : " ";
             let isVeg = document.getElementById('cVeg').checked ? "✔" : " ";
-            
             let farmTypes = `Rice [${isRice}], Coconut [${isCoconut}], Livestock [${isLivestock}], Gulay [${isVeg}]`;
 
-            let riceHarvest = document.getElementById('mRiceHarvest').value;
-            let cocoHarvest = document.getElementById('mCocoHarvest').value;
-            let vegType = document.getElementById('mVegType').value;
-            let vegHarvest = document.getElementById('mVegHarvest').value;
-            let cost = document.getElementById('mCost').value;
+            let livestockInfo = document.getElementById('mLivestockInfo').value;
+            let riceFert = document.getElementById('mRiceFert').value;
+            let vegFert = document.getElementById('mVegFert').value;
+            let harvest = document.getElementById('mHarvest').value;
             let consump = document.getElementById('mConsump').value;
-            let soldQty = document.getElementById('mSoldQty').value;
-            let totalSales = document.getElementById('mTotalSales').value;
+            
+            let riceSales = document.getElementById('mRiceSales').value;
+            let cocoSales = document.getElementById('mCocoSales').value;
+            let vegSales = document.getElementById('mVegSales').value;
+            let liveSales = document.getElementById('mLiveSales').value;
+            let regFee = document.getElementById('mRegFee').value;
+            let duesFee = document.getElementById('mDuesFee').value;
 
             if(!name) {
                 alert("Mangyaring ilagay ang pangalan ng magsasaka.");
@@ -283,21 +294,23 @@
             let offTable = document.getElementById('officerTableBody');
             let newRow = offTable.insertRow();
 
-            let harvestText = `Palay: ${riceHarvest || 0} | Niyog: ${cocoHarvest || 0}`;
-            if(vegType) {
-                harvestText += ` | Gulay (${vegType}): ${vegHarvest || 0}kg`;
-            }
+            let personalInfoText = `${name} / ${address} / ${contact} / ${dob}`;
+            let landText = `Palay: ${riceLand} | Niyog: ${cocoLand}`;
+            let typeAndLivestock = `${farmTypes} | Hayop: ${livestockInfo || 'Wala'}`;
+            let fertText = `Palay: ${riceFert || 0} | Gulay: ${vegFert || 0}`;
+            let harvestText = `${harvest} | Konsumo: ${consump || 0}`;
+            let salesText = `Palay: ${riceSales || 0} | Niyog: ${cocoSales || 0} | Gulay: ${vegSales || 0} | Livestock: ${liveSales || 0}`;
+            let feesText = `Reg: ${regFee} | Dues: ${duesFee}`;
 
             newRow.innerHTML = `
-                <td><input type="text" class="editable-cell" value="${name}"></td>
-                <td><input type="text" class="editable-cell" value="${address} / ${contact}"></td>
-                <td><input type="text" class="editable-cell" value="${dob} (${age} yrs)"></td>
-                <td><input type="text" class="editable-cell" value="Palay: ${riceLand} | Niyog: ${cocoLand}"></td>
-                <td><input type="text" class="editable-cell" value="${farmTypes}"></td>
+                <td><input type="text" class="editable-cell" value="${photo}"></td>
+                <td><input type="text" class="editable-cell" value="${personalInfoText}"></td>
+                <td><input type="text" class="editable-cell" value="${landText}"></td>
+                <td><input type="text" class="editable-cell" value="${typeAndLivestock}"></td>
+                <td><input type="text" class="editable-cell" value="${fertText}"></td>
                 <td><input type="text" class="editable-cell" value="${harvestText}"></td>
-                <td><input type="text" class="editable-cell" value="${cost}"></td>
-                <td><input type="text" class="editable-cell" value="Konsumo: ${consump} | Benta: ${soldQty}"></td>
-                <td><input type="text" class="editable-cell" value="${totalSales}"></td>
+                <td><input type="text" class="editable-cell" value="${salesText}"></td>
+                <td><input type="text" class="editable-cell" value="${feesText}"></td>
                 <td>
                     <button class="action-btn" onclick="saveEdits(this)">I-save</button>
                     <button class="delete-btn" onclick="deleteRow(this)">Tanggalin</button>
@@ -306,27 +319,28 @@
 
             // Linisin ang input fields
             document.getElementById('mName').value = '';
+            document.getElementById('mPhoto').value = '';
             document.getElementById('mAddress').value = '';
             document.getElementById('mContact').value = '';
             document.getElementById('mDob').value = '';
-            document.getElementById('mAge').value = '';
             document.getElementById('mRiceLand').value = '';
             document.getElementById('mCocoLand').value = '';
             document.getElementById('cRice').checked = false;
             document.getElementById('cCoconut').checked = false;
             document.getElementById('cLivestock').checked = false;
             document.getElementById('cVeg').checked = false;
-            document.getElementById('mRiceHarvest').value = '';
-            document.getElementById('mCocoHarvest').value = '';
-            document.getElementById('mVegType').value = '';
-            document.getElementById('mVegHarvest').value = '';
-            document.getElementById('mCost').value = '';
+            document.getElementById('mLivestockInfo').value = '';
+            document.getElementById('mRiceFert').value = '';
+            document.getElementById('mVegFert').value = '';
+            document.getElementById('mHarvest').value = '';
             document.getElementById('mConsump').value = '';
-            document.getElementById('mSoldQty').value = '';
-            document.getElementById('mTotalSales').value = '';
+            document.getElementById('mRiceSales').value = '';
+            document.getElementById('mCocoSales').value = '';
+            document.getElementById('mVegSales').value = '';
+            document.getElementById('mLiveSales').value = '';
 
             updatePublicView();
-            alert("Tagumpay na naidagdag ang rekord!");
+            alert("Tagumpay na naidagdag ang kumpletong rekord!");
         }
 
         function saveEdits(btn) {
@@ -351,27 +365,25 @@
 
             for (let i = 0; i < rowCount; i++) {
                 let cells = offTable.rows[i].cells;
-                let name = cells[0].children[0].value;
-                let address = cells[1].children[0].value;
-                let dob = cells[2].children[0].value;
-                let land = cells[3].children[0].value;
-                let farmTypes = cells[4].children[0].value;
+                let photo = cells[0].children[0].value;
+                let personal = cells[1].children[0].value;
+                let land = cells[2].children[0].value;
+                let typeAndLivestock = cells[3].children[0].value;
+                let fert = cells[4].children[0].value;
                 let harvest = cells[5].children[0].value;
-                let cost = cells[6].children[0].value;
-                let consumpSold = cells[7].children[0].value;
-                let totalSales = cells[8].children[0].value;
+                let sales = cells[6].children[0].value;
+                let fees = cells[7].children[0].value;
 
                 let pubRow = pubTable.insertRow();
                 pubRow.innerHTML = `
-                    <td>${name}</td>
-                    <td>${address}</td>
-                    <td>${dob}</td>
-                    <td>${land}</td>
-                    <td>${farmTypes}</td>
-                    <td>${harvest}</td>
-                    <td>${cost}</td>
-                    <td>${consumpSold}</td>
-                    <td>${totalSales}</td>
+                    <td><img src="${photo}" class="profile-img"></td>
+                    <td>${personal.replace(/\//g, '<br>')}</td>
+                    <td>${land.replace(/\|/g, '<br>')}</td>
+                    <td>${typeAndLivestock.replace(/\|/g, '<br>')}</td>
+                    <td>${fert.replace(/\|/g, '<br>')}</td>
+                    <td>${harvest.replace(/\|/g, '<br>')}</td>
+                    <td>${sales.replace(/\|/g, '<br>')}</td>
+                    <td>${fees.replace(/\|/g, '<br>')}</td>
                 `;
             }
         }
