@@ -1,0 +1,692 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itulan Farmers Association Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .hidden-section { display: none; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i data-lucide="sprout" class="w-8 h-8 text-emerald-400"></i>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">ITULAN FARMERS ASSOCIATION</h1>
+                    <p class="text-xs text-emerald-200">Zone 3, Itulan, Pasacao, Camarines Sur</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <button id="navPublicBtn" onclick="switchTab('public')" class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-emerald-700 hover:bg-emerald-600 transition flex items-center space-x-1">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Public Page</span>
+                </button>
+                <button id="navOfficerBtn" onclick="openLoginModal()" class="px-3 py-1.5 rounded-lg text-sm font-semibold bg-amber-500 hover:bg-amber-600 text-slate-900 transition flex items-center space-x-1 shadow">
+                    <i data-lucide="lock" class="w-4 h-4"></i>
+                    <span>Officer Portal</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
+
+        <!-- ================= PUBLIC VIEW ================= -->
+        <section id="publicView" class="space-y-6">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-emerald-700 to-teal-800 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+                <div class="max-w-2xl">
+                    <span class="bg-emerald-600/60 text-emerald-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-400/30">Official Registry Portal</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 leading-tight">Pang-agrikulturang Talaan at Impormasyon ng Barangay Itulan</h2>
+                    <p class="mt-2 text-emerald-100 text-sm sm:text-base">
+                        Naglilingkod para sa kaunlaran ng mga magsasaka sa Palay, Niyog, at Livestock. Ang nakatala sa ibaba ay ang pangkalahatang datos (Aggregated Totals) ayon sa probisyon ng Data Privacy Act of 2012.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aggregated Public Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center text-emerald-600 mb-1">
+                        <i data-lucide="users" class="w-5 h-5 mr-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Miyembro</span>
+                    </div>
+                    <div id="pubTotalFarmers" class="text-2xl sm:text-3xl font-extrabold text-slate-800">0</div>
+                    <p class="text-xs text-slate-500 mt-1">Rehistradong Magsasaka</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center text-teal-600 mb-1">
+                        <i data-lucide="map" class="w-5 h-5 mr-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Sukat ng Lupa</span>
+                    </div>
+                    <div id="pubTotalArea" class="text-2xl sm:text-3xl font-extrabold text-slate-800">0 ha</div>
+                    <p class="text-xs text-slate-500 mt-1">Kabuuang Hektarya</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center text-amber-600 mb-1">
+                        <i data-lucide="wheat" class="w-5 h-5 mr-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Kabuuang Ani</span>
+                    </div>
+                    <div id="pubTotalYield" class="text-2xl sm:text-3xl font-extrabold text-slate-800">0</div>
+                    <p class="text-xs text-slate-500 mt-1">Tantyang Ani (Sacks/Units)</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                    <div class="flex items-center text-blue-600 mb-1">
+                        <i data-lucide="trending-up" class="w-5 h-5 mr-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Gross Sales</span>
+                    </div>
+                    <div id="pubTotalSales" class="text-2xl sm:text-3xl font-extrabold text-slate-800">₱0</div>
+                    <p class="text-xs text-slate-500 mt-1">Kabuuang Benta ng Asosasyon</p>
+                </div>
+            </div>
+
+            <!-- Public Privacy Announcement -->
+            <div class="bg-slate-100 p-4 rounded-xl border border-slate-300 flex items-start space-x-3 text-slate-600 text-xs sm:text-sm">
+                <i data-lucide="shield-check" class="w-6 h-6 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                <p>
+                    <strong>Protektado ang Data Privacy:</strong> Ang mga indibidwal na pangalan, numero ng telepono, at eksaktong lokasyon ng bawat magsasaka ay nakatago sa pampublikong pahinang ito bilang pagtupad sa Data Privacy Act of 2012. Tanging ang mga awtorisadong Officers lamang ang may access sa buong talaan sa pamamagitan ng password.
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= OFFICER PORTAL ================= -->
+        <section id="officerView" class="hidden-section space-y-6">
+            <!-- Admin Top Bar -->
+            <div class="bg-amber-50 rounded-xl p-4 border border-amber-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-amber-600 text-white text-xs font-bold px-2.5 py-0.5 rounded-md">OFFICER DASHBOARD</span>
+                        <h2 class="text-lg font-bold text-slate-800">Masterlist & Farm Management</h2>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-1">Nakalagda bilang Sekretarya / Admin ng Itulan Farmers Association (yhanyhanyhan42@gmail.com)</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="openAddFarmerModal()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center space-x-1.5 shadow transition">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Mag-add ng Farmer</span>
+                    </button>
+                    <button onclick="exportToCSV()" class="bg-slate-700 hover:bg-slate-800 text-white text-sm font-semibold px-3 py-2 rounded-lg flex items-center space-x-1.5 transition">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Export CSV</span>
+                    </button>
+                    <button onclick="logoutOfficer()" class="bg-rose-100 hover:bg-rose-200 text-rose-800 text-sm font-semibold px-3 py-2 rounded-lg transition">
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Financial Analytics Summary Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="text-xs text-slate-500 font-semibold uppercase">Kabuuang Gastos (Expenses)</p>
+                    <p id="dashExpenses" class="text-xl font-bold text-rose-600 mt-1">₱0</p>
+                    <span class="text-[11px] text-slate-400">Labor + Fertilizer + Inputs</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="text-xs text-slate-500 font-semibold uppercase">Kabuuang Benta (Gross Sales)</p>
+                    <p id="dashSales" class="text-xl font-bold text-emerald-600 mt-1">₱0</p>
+                    <span class="text-[11px] text-slate-400">Galing sa Commercial Sales</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="text-xs text-slate-500 font-semibold uppercase">Tantyang Net Income</p>
+                    <p id="dashNetIncome" class="text-xl font-bold text-blue-600 mt-1">₱0</p>
+                    <span class="text-[11px] text-slate-400">Benta minus Gastos</span>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                    <p class="text-xs text-slate-500 font-semibold uppercase">Rehistradong Lupon</p>
+                    <p id="dashCount" class="text-xl font-bold text-slate-800 mt-1">0 Magsasaka</p>
+                    <span class="text-[11px] text-slate-400">Active Member Records</span>
+                </div>
+            </div>
+
+            <!-- Search & Filter Controls -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-3">
+                <div class="relative flex-grow">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3 top-3 text-slate-400"></i>
+                    <input type="text" id="searchInput" oninput="renderFarmerTable()" placeholder="Mag-search ng Pangalan o Contact Number..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                </div>
+                <select id="sectorFilter" onchange="renderFarmerTable()" class="px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-emerald-600">
+                    <option value="All">Lahat ng Sektor</option>
+                    <option value="Rice">Palay / Rice</option>
+                    <option value="Coconut">Niyog / Coconut</option>
+                    <option value="Livestock">Mifan / Livestock</option>
+                </select>
+            </div>
+
+            <!-- Farmer Masterlist Table -->
+            <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600">
+                        <thead class="bg-slate-100 text-slate-700 uppercase font-semibold text-xs border-b border-slate-200">
+                            <tr>
+                                <th class="px-4 py-3">Magsasaka</th>
+                                <th class="px-4 py-3">Sektor & Variety</th>
+                                <th class="px-4 py-3">Sukat & Ani</th>
+                                <th class="px-4 py-3">Frequencies</th>
+                                <th class="px-4 py-3">Gastos / Benta</th>
+                                <th class="px-4 py-3 text-center">Aksyon</th>
+                            </tr>
+                        </thead>
+                        <tbody id="farmerTableBody" class="divide-y divide-slate-200">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-bold text-slate-200">ITULAN FARMERS ASSOCIATION</p>
+                <p>Zone 3, Itulan, Pasacao, Camarines Sur | Data Privacy Compliant</p>
+            </div>
+            <p>© 2026 Itulan Farmers Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-center items-center p-4 hidden-section">
+        <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6 space-y-4">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800">Officer Portal Access</h3>
+                <p class="text-xs text-slate-500">I-enter ang passcode ng Sekretarya / Admin para mabuksan ang mga indibidwal na talaan.</p>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Passcode</label>
+                <input type="password" id="passcodeInput" placeholder="I-type ang passcode (Default: 1234)" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none text-sm">
+                <p id="loginError" class="text-xs text-rose-600 mt-1 hidden-section">Maling passcode. Subukang muli.</p>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="closeLoginModal()" class="w-1/2 py-2 border border-slate-300 text-slate-600 rounded-lg text-sm font-semibold hover:bg-slate-50">Kanselahin</button>
+                <button onclick="validateLogin()" class="w-1/2 py-2 bg-amber-500 hover:bg-amber-600 text-slate-900 rounded-lg text-sm font-bold shadow">Mag-login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD / EDIT FARMER MODAL -->
+    <div id="farmerFormModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-center items-center p-4 hidden-section">
+        <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 id="formModalTitle" class="text-lg font-bold text-slate-800">Mag-add ng Bagong Farmer Profile</h3>
+                <button onclick="closeFarmerFormModal()" class="text-slate-400 hover:text-slate-600">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <form id="farmerForm" onsubmit="saveFarmerForm(event)" class="space-y-4 text-xs sm:text-sm">
+                <input type="hidden" id="editFarmerId">
+
+                <!-- Personal Info -->
+                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-emerald-800 uppercase text-xs">1. Impormasyon ng Indibidwal</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <label class="block text-slate-600 mb-1">Buong Pangalan *</label>
+                            <input type="text" id="fName" required class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Edad *</label>
+                            <input type="number" id="fAge" required min="15" max="100" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Contact Number *</label>
+                            <input type="text" id="fContact" required placeholder="09xxxxxxxxx" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Sektor ng Pagsasaka *</label>
+                            <select id="fSector" required class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600 bg-white">
+                                <option value="Rice">Palay / Rice</option>
+                                <option value="Coconut">Niyog / Coconut</option>
+                                <option value="Livestock">Mifan / Livestock</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Variety / Uri ng Alaga</label>
+                            <input type="text" id="fVariety" placeholder="e.g. NSIC Rc222 / Swine" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farm Operations & Frequencies -->
+                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-emerald-800 uppercase text-xs">2. Sukat, Ani at Operasyon sa Sakahan</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-slate-600 mb-1">Sukat ng Lupa (Hectares)</label>
+                            <input type="number" step="0.01" id="fArea" required class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Ani bawat Cycle</label>
+                            <input type="text" id="fYield" placeholder="e.g. 115 sacks" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Ilang beses nagpatubig</label>
+                            <input type="text" id="fIrrigation" placeholder="e.g. 4 na beses / Rainfed" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Ilang beses nag-abono</label>
+                            <input type="text" id="fFertilizer" placeholder="e.g. 3 beses" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Ilang beses nag-spray</label>
+                            <input type="text" id="fSpray" placeholder="e.g. 2 beses / Organic" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expenses & Financials -->
+                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-emerald-800 uppercase text-xs">3. Pananalapi at Benta</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-slate-600 mb-1">Labor Cost (₱)</label>
+                            <input type="number" id="fLaborCost" placeholder="0" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Kabuuang Gastos (₱)</label>
+                            <input type="number" id="fTotalExpenses" placeholder="0" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Uri ng Paggamit</label>
+                            <select id="fUsage" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600 bg-white">
+                                <option value="Commercial & Consumption">Benta at Konsumo</option>
+                                <option value="Commercial Sale Only">Ibinenta Lahat</option>
+                                <option value="Family Food Consumption">Pampamilyang Pagkain Lang</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-600 mb-1">Dami ng Naibenta</label>
+                            <input type="text" id="fSoldQty" placeholder="e.g. 90 sacks" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-slate-600 mb-1">Kabuuang Benta / Gross Sales (₱)</label>
+                            <input type="number" id="fGrossSales" placeholder="0" class="w-full px-3 py-1.5 border border-slate-300 rounded focus:ring-1 focus:ring-emerald-600 font-bold text-emerald-700">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit buttons -->
+                <div class="flex justify-end space-x-2 pt-2 border-t">
+                    <button type="button" onclick="closeFarmerFormModal()" class="px-4 py-2 border border-slate-300 rounded text-slate-600 font-semibold hover:bg-slate-100">Kanselahin</button>
+                    <button type="submit" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded font-bold shadow">I-save ang Record</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- VIEW DETAILS MODAL -->
+    <div id="viewDetailsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-center items-center p-4 hidden-section">
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-base font-bold text-slate-800 flex items-center space-x-2">
+                    <i data-lucide="user-check" class="w-5 h-5 text-emerald-600"></i>
+                    <span>Kumpletong Profile ng Magsasaka</span>
+                </h3>
+                <button onclick="closeViewDetailsModal()" class="text-slate-400 hover:text-slate-600">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="viewModalBody" class="space-y-3 text-xs sm:text-sm text-slate-700">
+                <!-- Dynamic Content -->
+            </div>
+            <div class="pt-3 border-t flex justify-end">
+                <button onclick="closeViewDetailsModal()" class="px-4 py-2 bg-slate-800 text-white rounded-lg font-semibold">Isara</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION LOGIC / JAVASCRIPT -->
+    <script>
+        const initialFarmers = [
+            {
+                id: "FARM-101",
+                name: "Juan Dela Cruz",
+                age: 48,
+                contact: "09171234567",
+                sector: "Rice",
+                variety: "NSIC Rc 222",
+                area: 1.5,
+                yield: "115 sacks",
+                irrigation: "4 na beses",
+                fertilizer: "3 beses",
+                spray: "2 beses",
+                laborCost: 15000,
+                totalExpenses: 28000,
+                usage: "Commercial & Consumption",
+                soldQty: "95 sacks",
+                grossSales: 85500
+            }
+        ];
+
+        let farmersData = [];
+        let isOfficerLoggedIn = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('itulan_farmers_db');
+            if (saved) {
+                farmersData = JSON.parse(saved);
+            } else {
+                farmersData = initialFarmers;
+                saveToLocalStorage();
+            }
+            lucide.createIcons();
+            updatePublicStats();
+            renderFarmerTable();
+        });
+
+        function saveToLocalStorage() {
+            localStorage.setItem('itulan_farmers_db', JSON.stringify(farmersData));
+        }
+
+        function switchTab(view) {
+            const pubView = document.getElementById('publicView');
+            const offView = document.getElementById('officerView');
+            
+            if (view === 'public') {
+                pubView.classList.remove('hidden-section');
+                offView.classList.add('hidden-section');
+                updatePublicStats();
+            } else if (view === 'officer') {
+                if (!isOfficerLoggedIn) {
+                    openLoginModal();
+                } else {
+                    pubView.classList.add('hidden-section');
+                    offView.classList.remove('hidden-section');
+                    renderFarmerTable();
+                }
+            }
+        }
+
+        function openLoginModal() {
+            if (isOfficerLoggedIn) {
+                switchTab('officer');
+            } else {
+                document.getElementById('loginModal').classList.remove('hidden-section');
+                document.getElementById('passcodeInput').value = '';
+                document.getElementById('loginError').classList.add('hidden-section');
+            }
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden-section');
+        }
+
+        function validateLogin() {
+            const pass = document.getElementById('passcodeInput').value;
+            if (pass === '1234') {
+                isOfficerLoggedIn = true;
+                closeLoginModal();
+                switchTab('officer');
+            } else {
+                document.getElementById('loginError').classList.remove('hidden-section');
+            }
+        }
+
+        function logoutOfficer() {
+            isOfficerLoggedIn = false;
+            switchTab('public');
+        }
+
+        function updatePublicStats() {
+            const totalFarmers = farmersData.length;
+            const totalArea = farmersData.reduce((acc, curr) => acc + Number(curr.area || 0), 0);
+            const totalSales = farmersData.reduce((acc, curr) => acc + Number(curr.grossSales || 0), 0);
+
+            document.getElementById('pubTotalFarmers').innerText = totalFarmers;
+            document.getElementById('pubTotalArea').innerText = totalArea.toFixed(1) + " ha";
+            document.getElementById('pubTotalYield').innerText = totalFarmers > 0 ? `${totalFarmers} Records` : "0";
+            document.getElementById('pubTotalSales').innerText = "₱" + totalSales.toLocaleString();
+        }
+
+        function renderFarmerTable() {
+            const tbody = document.getElementById('farmerTableBody');
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const sector = document.getElementById('sectorFilter').value;
+
+            tbody.innerHTML = '';
+
+            let filtered = farmersData.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(search) || item.contact.includes(search);
+                const matchesSector = sector === 'All' || item.sector === sector;
+                return matchesSearch && matchesSector;
+            });
+
+            let totalExp = 0;
+            let totalSales = 0;
+
+            filtered.forEach(item => {
+                totalExp += Number(item.totalExpenses || 0);
+                totalSales += Number(item.grossSales || 0);
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 border-b border-slate-200";
+
+                tr.innerHTML = `
+                    <td class="px-4 py-3">
+                        <div class="font-bold text-slate-800">${escapeHtml(item.name)}</div>
+                        <div class="text-xs text-slate-400">${item.age} taon • ${escapeHtml(item.contact)}</div>
+                    </td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 py-0.5 text-xs rounded font-semibold ${getSectorBadge(item.sector)}">
+                            ${item.sector}
+                        </span>
+                        <div class="text-xs text-slate-500 mt-1">${escapeHtml(item.variety || 'N/A')}</div>
+                    </td>
+                    <td class="px-4 py-3">
+                        <div class="font-semibold text-slate-700">${item.area} ha</div>
+                        <div class="text-xs text-emerald-700 font-medium">${escapeHtml(item.yield || 'N/A')}</div>
+                    </td>
+                    <td class="px-4 py-3 text-xs">
+                        <div><span class="text-slate-400">Patubig:</span> ${escapeHtml(item.irrigation || '-')}</div>
+                        <div><span class="text-slate-400">Abono:</span> ${escapeHtml(item.fertilizer || '-')}</div>
+                        <div><span class="text-slate-400">Spray:</span> ${escapeHtml(item.spray || '-')}</div>
+                    </td>
+                    <td class="px-4 py-3 text-xs">
+                        <div class="text-rose-600">Gastos: ₱${Number(item.totalExpenses || 0).toLocaleString()}</div>
+                        <div class="text-emerald-700 font-bold">Benta: ₱${Number(item.grossSales || 0).toLocaleString()}</div>
+                    </td>
+                    <td class="px-4 py-3 text-center">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button onclick="viewDetails('${item.id}')" title="View Details" class="p-1.5 text-blue-600 hover:bg-blue-50 rounded">
+                                <i data-lucide="eye" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="openEditFarmerModal('${item.id}')" title="Edit Record" class="p-1.5 text-amber-600 hover:bg-amber-50 rounded">
+                                <i data-lucide="edit-3" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="deleteFarmer('${item.id}')" title="Delete Record" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('dashExpenses').innerText = "₱" + totalExp.toLocaleString();
+            document.getElementById('dashSales').innerText = "₱" + totalSales.toLocaleString();
+            document.getElementById('dashNetIncome').innerText = "₱" + (totalSales - totalExp).toLocaleString();
+            document.getElementById('dashCount').innerText = `${filtered.length} Magsasaka`;
+
+            lucide.createIcons();
+        }
+
+        function getSectorBadge(sector) {
+            if (sector === 'Rice') return 'bg-amber-100 text-amber-800 border border-amber-300';
+            if (sector === 'Coconut') return 'bg-emerald-100 text-emerald-800 border border-emerald-300';
+            return 'bg-blue-100 text-blue-800 border border-blue-300';
+        }
+
+        function openAddFarmerModal() {
+            document.getElementById('formModalTitle').innerText = "Mag-add ng Bagong Farmer Profile";
+            document.getElementById('farmerForm').reset();
+            document.getElementById('editFarmerId').value = "";
+            document.getElementById('farmerFormModal').classList.remove('hidden-section');
+        }
+
+        function openEditFarmerModal(id) {
+            const item = farmersData.find(f => f.id === id);
+            if (!item) return;
+
+            document.getElementById('formModalTitle').innerText = "I-edit ang Talaan ni " + item.name;
+            document.getElementById('editFarmerId').value = item.id;
+            document.getElementById('fName').value = item.name;
+            document.getElementById('fAge').value = item.age;
+            document.getElementById('fContact').value = item.contact;
+            document.getElementById('fSector').value = item.sector;
+            document.getElementById('fVariety').value = item.variety || "";
+            document.getElementById('fArea').value = item.area;
+            document.getElementById('fYield').value = item.yield || "";
+            document.getElementById('fIrrigation').value = item.irrigation || "";
+            document.getElementById('fFertilizer').value = item.fertilizer || "";
+            document.getElementById('fSpray').value = item.spray || "";
+            document.getElementById('fLaborCost').value = item.laborCost || 0;
+            document.getElementById('fTotalExpenses').value = item.totalExpenses || 0;
+            document.getElementById('fUsage').value = item.usage || "Commercial & Consumption";
+            document.getElementById('fSoldQty').value = item.soldQty || "";
+            document.getElementById('fGrossSales').value = item.grossSales || 0;
+
+            document.getElementById('farmerFormModal').classList.remove('hidden-section');
+        }
+
+        function closeFarmerFormModal() {
+            document.getElementById('farmerFormModal').classList.add('hidden-section');
+        }
+
+        function saveFarmerForm(e) {
+            e.preventDefault();
+
+            const editId = document.getElementById('editFarmerId').value;
+            const farmerObj = {
+                id: editId || ("FARM-" + Date.now()),
+                name: document.getElementById('fName').value,
+                age: Number(document.getElementById('fAge').value),
+                contact: document.getElementById('fContact').value,
+                sector: document.getElementById('fSector').value,
+                variety: document.getElementById('fVariety').value,
+                area: Number(document.getElementById('fArea').value),
+                yield: document.getElementById('fYield').value,
+                irrigation: document.getElementById('fIrrigation').value,
+                fertilizer: document.getElementById('fFertilizer').value,
+                spray: document.getElementById('fSpray').value,
+                laborCost: Number(document.getElementById('fLaborCost').value || 0),
+                totalExpenses: Number(document.getElementById('fTotalExpenses').value || 0),
+                usage: document.getElementById('fUsage').value,
+                soldQty: document.getElementById('fSoldQty').value,
+                grossSales: Number(document.getElementById('fGrossSales').value || 0)
+            };
+
+            if (editId) {
+                const index = farmersData.findIndex(f => f.id === editId);
+                if (index !== -1) farmersData[index] = farmerObj;
+            } else {
+                farmersData.unshift(farmerObj);
+            }
+
+            saveToLocalStorage();
+            closeFarmerFormModal();
+            renderFarmerTable();
+            alert("Matagumpay na nai-save ang talaan!");
+        }
+
+        function deleteFarmer(id) {
+            if (confirm("Sigurado ka bang gusto mong burahin ang talaang ito?")) {
+                farmersData = farmersData.filter(f => f.id !== id);
+                saveToLocalStorage();
+                renderFarmerTable();
+            }
+        }
+
+        function viewDetails(id) {
+            const item = farmersData.find(f => f.id === id);
+            if (!item) return;
+
+            const net = (item.grossSales || 0) - (item.totalExpenses || 0);
+
+            const body = document.getElementById('viewModalBody');
+            body.innerHTML = `
+                <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                    <p class="text-base font-bold text-emerald-900">${escapeHtml(item.name)}</p>
+                    <p class="text-xs text-emerald-700">${item.age} Taong Gulang | Contact: ${escapeHtml(item.contact)}</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="p-2 bg-slate-50 rounded"><strong>Sektor:</strong> ${item.sector}</div>
+                    <div class="p-2 bg-slate-50 rounded"><strong>Variety/Alaga:</strong> ${escapeHtml(item.variety || 'N/A')}</div>
+                    <div class="p-2 bg-slate-50 rounded"><strong>Sukat ng Lupa:</strong> ${item.area} Hektarya</div>
+                    <div class="p-2 bg-slate-50 rounded"><strong>Ani bawat cycle:</strong> ${escapeHtml(item.yield || 'N/A')}</div>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded border border-slate-200 text-xs space-y-1">
+                    <p class="font-bold text-slate-700">Frequencies & Pamamahala:</p>
+                    <p>• <strong>Patubig:</strong> ${escapeHtml(item.irrigation || 'N/A')}</p>
+                    <p>• <strong>Abono:</strong> ${escapeHtml(item.fertilizer || 'N/A')}</p>
+                    <p>• <strong>Pag-spray:</strong> ${escapeHtml(item.spray || 'N/A')}</p>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded border border-slate-200 text-xs space-y-1">
+                    <p class="font-bold text-slate-700">Pananalapi:</p>
+                    <p>• <strong>Labor Cost:</strong> ₱${Number(item.laborCost || 0).toLocaleString()}</p>
+                    <p>• <strong>Kabuuang Gastos:</strong> ₱${Number(item.totalExpenses || 0).toLocaleString()}</p>
+                    <p>• <strong>Uri ng Paggamit:</strong> ${item.usage}</p>
+                    <p>• <strong>Dami ng Naibenta:</strong> ${escapeHtml(item.soldQty || 'N/A')}</p>
+                    <p class="text-emerald-700 font-bold">• Gross Sales: ₱${Number(item.grossSales || 0).toLocaleString()}</p>
+                    <p class="text-blue-700 font-bold">• Net Income Estimate: ₱${net.toLocaleString()}</p>
+                </div>
+            `;
+            document.getElementById('viewDetailsModal').classList.remove('hidden-section');
+        }
+
+        function closeViewDetailsModal() {
+            document.getElementById('viewDetailsModal').classList.add('hidden-section');
+        }
+
+        function exportToCSV() {
+            if (farmersData.length === 0) {
+                alert("Walang datos na ma-eexport.");
+                return;
+            }
+
+            let csv = "Pangalan,Edad,Contact,Sektor,Variety,Sukat_Hektarya,Ani_Cycle,Patubig,Abono,Spray,Labor_Cost,Total_Expenses,Usage,Sold_Qty,Gross_Sales\n";
+            
+            farmersData.forEach(f => {
+                csv += `"${f.name}",${f.age},"${f.contact}","${f.sector}","${f.variety || ''}",${f.area},"${f.yield || ''}","${f.irrigation || ''}","${f.fertilizer || ''}","${f.spray || ''}",${f.laborCost || 0},${f.totalExpenses || 0},"${f.usage}","${f.soldQty || ''}",${f.grossSales || 0}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `Itulan_Farmers_Masterlist_${new Date().toISOString().slice(0,10)}.csv`);
+            a.click();
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+</html></pre>
+        </body>
+    </html>
