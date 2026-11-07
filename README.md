@@ -111,9 +111,9 @@
 <body>
 
 <div class="container">
-    <!-- OPISYAL NA LOGO (Naka-embed na direkta sa code) -->
+    <!-- LOGO NG ASOSASYON -->
     <div class="logo-container">
-        <img id="associationLogo" src="logo.png" alt="Itulan Farmers Association Logo">
+        <img src="logo.png" alt="Itulan Farmers Association Logo">
     </div>
 
     <h2 class="title">Itulan Farmers Association</h2>
@@ -141,11 +141,11 @@
                 </tr>
             </thead>
             <tbody id="publicTableBody">
-                <tr><td>IFA-2024-001</td><td>Guavar, Rayan D.</td><td>Kasaping Magsasaka</td><td><span class="badge-paid">₱100</span></td><td>₱20</td><td><span class="badge-bal">₱100</span></td><td><span class="badge-bal">May Balanse</span></td></tr>
+                <tr><td>IFA-2024-001</td><td>Guavar, Rayan D.</td><td>AI Technician / Kasapi</td><td><span class="badge-paid">₱100</span></td><td>₱120</td><td><span class="badge-paid">₱0</span></td><td><span class="badge-paid">Bayad na</span></td></tr>
                 <tr><td>IFA-2024-002</td><td>Alcantara, Danilo M.</td><td>Pangulo</td><td><span class="badge-paid">₱100</span></td><td>₱120</td><td><span class="badge-paid">₱0</span></td><td><span class="badge-paid">Bayad na</span></td></tr>
                 <tr><td>IFA-2024-003</td><td>Mendoza, Elena S.</td><td>Ingat-Yaman</td><td><span class="badge-paid">₱100</span></td><td>₱120</td><td><span class="badge-paid">₱0</span></td><td><span class="badge-paid">Bayad na</span></td></tr>
                 <tr><td>IFA-2024-004</td><td>Ramos, Vicente T.</td><td>Kasaping Magsasaka</td><td><span class="badge-paid">₱100</span></td><td>₱60</td><td><span class="badge-bal">₱60</span></td><td><span class="badge-bal">May Balanse</span></td></tr>
-                <tr><td>IFA-2024-005</td><td>Bordon, Maria Fe C.</td><td>Kalihim</td><td><span class="badge-paid">₱100</span></td><td>₱120</td><td><span class="badge-paid">₱0</span></td><td><span class="badge-paid">Bayad na</span></td></tr>
+                <tr><td>IFA-2024-005</td><td>Bordon, Maria Fe C.</td><td>Kalihim (Secretary)</td><td><span class="badge-paid">₱100</span></td><td>₱120</td><td><span class="badge-paid">₱0</span></td><td><span class="badge-paid">Bayad na</span></td></tr>
             </tbody>
         </table>
         <p style="font-size: 11px; color: #64748b; text-align: center;">* Transparent view para sa lahat ng miyembro. Read-only mode.</p>
@@ -171,8 +171,8 @@
             <!-- MEMBER SELECTOR DROPDOWN & NEW BUTTON -->
             <div style="background: #e2e8f0; padding: 12px; border-radius: 4px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between;">
                 <label for="memberSelect" style="font-weight: bold; font-size: 13px;">Pumili ng Miyembro:</label>
-                <select id="memberSelect" onchange="loadMemberProfile()" style="width: 60%;">
-                    <option value="0">IFA-2024-001 | Guavar, Rayan D. (Kasaping Magsasaka)</option>
+                <select id="memberSelect" onchange="loadMemberProfile()" style="width: 55%;">
+                    <option value="0">IFA-2024-001 | Guavar, Rayan D. (AI Tech / Kasapi)</option>
                     <option value="1">IFA-2024-002 | Alcantara, Danilo M. (Pangulo)</option>
                     <option value="2">IFA-2024-003 | Mendoza, Elena S. (Ingat-Yaman)</option>
                     <option value="3">IFA-2024-004 | Ramos, Vicente T. (Kasaping Magsasaka)</option>
@@ -223,7 +223,7 @@
                     Kabuuang Kita: <span id="kabuuangKitaDisplay" style="color: #0284c7;">₱0</span>
                 </div>
 
-                <!-- BUTTONS PARA SA SAVE, ADD, PRINT, AT DELETE -->
+                <!-- HIWA-HIWALAY NA BUTTONS -->
                 <div class="btn-container" style="text-align: center;">
                     <button type="button" class="btn btn-save" onclick="submitData('save')">💾 I-save ang Pagbabago</button>
                     <button type="button" class="btn btn-add" onclick="submitData('add')">➕ Idagdag bilang Bago</button>
@@ -243,14 +243,14 @@
 
 <script>
     const OFFICER_PASS = "Int3rn3tWisp2021";
-    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"; // Palitan ng iyong Web App URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx_your_actual_script_url_here/exec"; // Palitan ng iyong Google Apps Script Web App URL
 
     const membersData = [
-        { idMiyembro: "IFA-2024-001", pangalan: "Guavar, Rayan D.", posisyon: "Kasaping Magsasaka", memberSince: "2024", edadKasarian: "31 | Lalaki", dateOfBirth: "1995-03-10", civilStatus: "May Asawa", rsbsaNo: "Wala", ncfrsNo: "Wala", address: "Zone 3, Itulan, Pasacao", contactNo: "9637657151", registrationFee: 100, monthlyDuesPaid: 20, foodConsumption: "30 sako (Palay)", uriNgKalamidad: "Wala", niyogPuno: "Wala", palayNasirangPct: "Wala", gulayNasirangPct: "Wala", palayDet: "1.5 Hektarya", palayAni: "145 Kaban", palayKita: 166750, niyogDet: "1 Hektarya", niyogAni: "2400 Kilo", niyogKita: 87600 },
+        { idMiyembro: "IFA-2024-001", pangalan: "Guavar, Rayan D.", posisyon: "AI Technician / Kasapi", memberSince: "2024", edadKasarian: "31 | Lalaki", dateOfBirth: "1995-03-10", civilStatus: "May Asawa", rsbsaNo: "Wala", ncfrsNo: "Wala", address: "Zone 3, Itulan, Pasacao", contactNo: "9637657151", registrationFee: 100, monthlyDuesPaid: 120, foodConsumption: "30 sako (Palay)", uriNgKalamidad: "Wala", niyogPuno: "Wala", palayNasirangPct: "Wala", gulayNasirangPct: "Wala", palayDet: "1.5 Hektarya", palayAni: "145 Kaban", palayKita: 166750, niyogDet: "1 Hektarya", niyogAni: "2400 Kilo", niyogKita: 87600 },
         { idMiyembro: "IFA-2024-002", pangalan: "Alcantara, Danilo M.", posisyon: "Pangulo", memberSince: "2024", edadKasarian: "48 | Lalaki", dateOfBirth: "1976-08-22", civilStatus: "May Asawa", rsbsaNo: "RSBSA-0291", ncfrsNo: "NCFRS-881", address: "Zone 3, Itulan, Pasacao", contactNo: "9194567821", registrationFee: 100, monthlyDuesPaid: 120, foodConsumption: "25 sako (Palay)", uriNgKalamidad: "Bagyo", niyogPuno: "5 Puno", palayNasirangPct: "10%", gulayNasirangPct: "Wala", palayDet: "2 Hektarya", palayAni: "190 Kaban", palayKita: 218500, niyogDet: "1.2 Hektarya", niyogAni: "3000 Kilo", niyogKita: 105000 },
         { idMiyembro: "IFA-2024-003", pangalan: "Mendoza, Elena S.", posisyon: "Ingat-Yaman", memberSince: "2024", edadKasarian: "42 | Babae", dateOfBirth: "1982-11-05", civilStatus: "May Asawa", rsbsaNo: "RSBSA-0492", ncfrsNo: "NCFRS-902", address: "Zone 3, Itulan, Pasacao", contactNo: "9283459012", registrationFee: 100, monthlyDuesPaid: 120, foodConsumption: "20 sako (Palay)", uriNgKalamidad: "Wala", niyogPuno: "Wala", palayNasirangPct: "Wala", gulayNasirangPct: "Wala", palayDet: "1 Hektarya", palayAni: "110 Kaban", palayKita: 126500, niyogDet: "1 Hektarya", niyogAni: "4500 Piraso", niyogKita: 63000 },
         { idMiyembro: "IFA-2024-004", pangalan: "Ramos, Vicente T.", posisyon: "Kasaping Magsasaka", memberSince: "2024", edadKasarian: "55 | Lalaki", dateOfBirth: "1969-04-18", civilStatus: "May Asawa", rsbsaNo: "Wala", ncfrsNo: "Wala", address: "Zone 3, Itulan, Pasacao", contactNo: "9391238475", registrationFee: 100, monthlyDuesPaid: 60, foodConsumption: "35 sako (Palay)", uriNgKalamidad: "Tagtuyot", niyogPuno: "12 Puno", palayNasirangPct: "25%", gulayNasirangPct: "15%", palayDet: "1.2 Hektarya", palayAni: "95 Kaban", palayKita: 109250, niyogDet: "0.8 Hektarya", niyogAni: "1800 Kilo", niyogKita: 65000 },
-        { idMiyembro: "IFA-2024-005", pangalan: "Bordon, Maria Fe C.", posisyon: "Kalihim", memberSince: "2024", edadKasarian: "38 | Babae", dateOfBirth: "1986-01-30", civilStatus: "Walang Asawa", rsbsaNo: "RSBSA-0812", ncfrsNo: "NCFRS-114", address: "Zone 3, Itulan, Pasacao", contactNo: "9475628193", registrationFee: 100, monthlyDuesPaid: 120, foodConsumption: "20 sako (Palay)", uriNgKalamidad: "Wala", niyogPuno: "Wala", palayNasirangPct: "Wala", gulayNasirangPct: "Wala", palayDet: "1 Hektarya", palayAni: "105 Kaban", palayKita: 120750, niyogDet: "1 Hektarya", niyogAni: "2200 Kilo", niyogKita: 80000 }
+        { idMiyembro: "IFA-2024-005", pangalan: "Bordon, Maria Fe C.", posisyon: "Kalihim (Secretary)", memberSince: "2024", edadKasarian: "38 | Babae", dateOfBirth: "1986-01-30", civilStatus: "Walang Asawa", rsbsaNo: "RSBSA-0812", ncfrsNo: "NCFRS-114", address: "Zone 3, Itulan, Pasacao", contactNo: "9475628193", registrationFee: 100, monthlyDuesPaid: 120, foodConsumption: "20 sako (Palay)", uriNgKalamidad: "Wala", niyogPuno: "Wala", palayNasirangPct: "Wala", gulayNasirangPct: "Wala", palayDet: "1 Hektarya", palayAni: "105 Kaban", palayKita: 120750, niyogDet: "1 Hektarya", niyogAni: "2200 Kilo", niyogKita: 80000 }
     ];
 
     function switchTab(tab) {
